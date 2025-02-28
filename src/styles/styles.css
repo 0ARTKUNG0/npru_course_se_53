@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: #003366;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #004d99;
+    padding: 1rem;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #cce6ff;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    margin-bottom: 100px;
+}
+
+.footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.student-info {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.crud-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.crud-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.crud-form input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.crud-form button {
+    padding: 0.5rem;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.students-list {
+    margin-top: 2rem;
+}
+
+.student-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #ffd700;
+}
+
+.delete-btn {
+    background-color: #ff4444;
+    color: white;
+}
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    display: none;
+    z-index: 1000;
+    animation: slideIn 0.5s;
+}
+
+.alert.success {
+    background-color: #4CAF50;
+}
+
+.alert.error {
+    background-color: #f44336;
+}
+
+.import-export {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.file-input {
+    display: none;
+}
+
+.import-btn, .export-btn {
+    padding: 0.5rem 1rem;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.clear-btn {
+    padding: 0.5rem 1rem;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.file-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.file-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-card:hover {
+    border-color: #004d99;
+    transform: translateY(-2px);
+}
+
+.file-card.selected {
+    border-color: #004d99;
+    background-color: #e6f3ff;
+}
+
+.file-card h3 {
+    margin: 0;
+    color: #004d99;
+    font-size: 1rem;
+}
+
+.file-card p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.file-actions {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.file-actions button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.load-btn {
+    background-color: #004d99;
+    color: white;
+}
+
+.delete-file-btn {
+    background-color: #ff4444;
+    color: white;
+}
+
+.group-card {
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.group-card h3 {
+    color: #003366;
+    margin-bottom: 0.5rem;
+}
+
+.group-members {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.group-member {
+    padding: 0.5rem;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.group-controls {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.group-controls input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px;
+}
+
+.group-controls button {
+    padding: 0.5rem 1rem;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-toggle-btn {
+    background-color: #ffd700 !important;
+    color: #000 !important;
+}
+
+.view-toggle-btn:hover {
+    background-color: #ffcc00 !important;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

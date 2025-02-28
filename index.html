@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Website</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+<body>
+    <div id="alertBox" class="alert"></div>
+
+    <header class="header">
+        <h1>ARTKUNG</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="import-export">
+            <input type="file" id="fileInput" class="file-input" accept=".json">
+            <button class="import-btn" onclick="document.getElementById('fileInput').click()">Import Data</button>
+            <button class="export-btn" onclick="exportData()">Export Data</button>
+            <button class="clear-btn" onclick="clearData()">Clear Data</button>
+        </div>
+
+        <div class="file-list" id="fileList">
+            <!-- Files will be listed here -->
+        </div>
+
+        <div id="mainContent" style="display: none;">
+            <div class="student-info" id="studentInfo">
+                <!-- Course info will be loaded here -->
+            </div>
+
+            <div class="crud-container">
+                <h2>Manage Students</h2>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search by ID or name...">
+                </div>
+
+                <div class="group-controls">
+                    <input type="number" id="numGroups" min="2" value="2" placeholder="Number of groups">
+                    <button onclick="divideIntoGroups(document.getElementById('numGroups').value)">
+                        Create Groups
+                    </button>
+                    <button class="view-toggle-btn" onclick="toggleView()">Show Groups</button>
+                </div>
+
+                <form class="crud-form" id="studentForm">
+                    <input type="text" id="studentId" placeholder="Student ID" required>
+                    <input type="text" id="studentName" placeholder="Student Name" required>
+                    <button type="submit" id="submitButton">Add Student</button>
+                </form>
+
+                <div class="students-list" id="studentsList">
+                    <!-- Students will be listed here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="noDataMessage" class="no-data">
+            <h2>No Data Available</h2>
+            <p>Please import your data file to begin.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025. All rights reserved.</p>
+    </footer>
+
+    <!-- Load JavaScript files in correct order -->
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/groups.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
