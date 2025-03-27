@@ -1,4 +1,4 @@
-// File import handler
+
 document.getElementById('fileInput').addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file) {
@@ -29,16 +29,12 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
         reader.readAsText(file);
     }
 });
-
-// Search handler
 document.getElementById('searchInput').addEventListener('input', (e) => {
     const searchTerm = e.target.value;
     if (courseData && courseData.students) {
         displayStudents(courseData.students, searchTerm);
     }
 });
-
-// Form submission handler
 document.getElementById('studentForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const id = document.getElementById('studentId').value;
@@ -65,8 +61,6 @@ document.getElementById('studentForm').addEventListener('submit', function(e) {
         courseData.students.push({ id, name });
         showAlert('Student added successfully!', 'success');
     }
-
-    // Save changes to storage
     if (courseData.filename) {
         saveFileToStorage(courseData.filename, courseData);
     }
@@ -74,8 +68,6 @@ document.getElementById('studentForm').addEventListener('submit', function(e) {
     displayStudents(courseData.students);
     document.getElementById('studentForm').reset();
 });
-
-// Clear data function
 function clearData() {
     if (confirm('Are you sure you want to clear the current view? Your stored files will be preserved.')) {
         courseData = null;
@@ -92,8 +84,6 @@ function clearData() {
         fileCards.forEach(card => card.classList.remove('selected'));
     }
 }
-
-// Export data function
 function exportData() {
     if (!courseData) {
         showAlert('No data to export!', 'error');
@@ -114,8 +104,6 @@ function exportData() {
     
     showAlert('Data exported successfully!', 'success');
 }
-
-// Student management functions
 function editStudent(id) {
     const student = courseData.students.find(s => s.id === id);
     if (student) {
@@ -131,8 +119,6 @@ function editStudent(id) {
 function deleteStudent(id) {
     if (confirm('Are you sure you want to delete this student?')) {
         courseData.students = courseData.students.filter(student => student.id !== id);
-        
-        // Save changes to storage
         if (courseData.filename) {
             saveFileToStorage(courseData.filename, courseData);
         }
@@ -141,8 +127,6 @@ function deleteStudent(id) {
         showAlert('Student deleted successfully!', 'success');
     }
 }
-
-// Initialize application
 window.onload = function() {
     const files = getStoredFiles();
     displayFileList();

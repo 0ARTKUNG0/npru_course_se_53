@@ -1,4 +1,3 @@
-// UI Functions
 function showAlert(message, type) {
     const alertBox = document.getElementById('alertBox');
     alertBox.textContent = message;
